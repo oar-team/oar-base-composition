@@ -1,0 +1,14 @@
+[project]
+
+# Examples
+selected = "laptop"
+
+[laptop.build.nur.repos.kapack.oar]
+src = "/home/adfaure/code/oar3"
+
+# [laptop.build.nur.repos.kapack.oar.src.fetchFromGitHub]
+# owner = "oar-team"
+# repo = "oar3"
+# rev = "237e37ca83b4be3b8a1e6930199d4ad21222ece6"
+# sha256 = "sha256-8l0jcuV+FbFpCWktqzgbvu+K+/Rh/5fCX8VvH0JaG7E="
+
