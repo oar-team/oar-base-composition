@@ -12,6 +12,25 @@ This is a minimal nixos-composition for OAR development.
 - docker and docker-compose # to use nxc on your laptop with docker
 - TODO: qemu ? # to use nxc on your laptop with qemu
 
+### Description of the files
+
+```
+> tree
+.
+├── common_config.nix
+├── composition.nix
+├── flake.lock
+├── flake.nix
+├── nxc.json
+├── README.md
+└── setup.toml
+```
+
+- [flake.nix](https://nix.dev/concepts/flakes) (flake.lock) this is the nix entry point. It defines the sources of the packages on which the composition is based upon.
+- composition.nix is the main composition entry point read by nixos-compose. It defines and configure the machines that will be deploied. In this repository, it defines a server oar, a frontend oar and the nodes.
+- REAME.md; please readme.
+- setup.toml is a file used by nixos to let the users (you?) to customize the composition, such as overriding the sources of packages etc etc.
+
 ## Get nixos-compose
 
 ### TODO Coming from python
