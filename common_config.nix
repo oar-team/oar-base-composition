@@ -26,6 +26,15 @@ let
     print("resource created")
   '';
 
+  wake_up_node = pkgs.writeShellScriptBin "wake_up_node" ''
+    set -x
+    NODES=`cat`
+    for NODE in $NODES
+    do
+      oarnodesetting -h ''${NODE} -s Alive
+    done
+  '';
+
   #openmpiNoOPA = pkgs.openmpi.override { fabricSupport = false; };
   #npbNoOPA = pkgs.nur.repos.kapack.npb.override (oldAttrs: rec { openmpi = openmpiNoOPA; });
 
@@ -115,10 +124,10 @@ in {
      AuthorizedKeysCommandUser nobody
   '';
 
-  security.pam.loginLimits = if flavour != "docker" then [
-      { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
-      { domain = "*"; item = "stack"; type = "-"; value = "unlimited"; }
-  ] else [];
+  # security.pam.loginLimits = if flavour != "docker" then [
+  #     { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
+  #     { domain = "*"; item = "stack"; type = "-"; value = "unlimited"; }
+  # ] else [];
 
   environment.etc."privkey.snakeoil" = {
     mode = "0600";
@@ -159,7 +168,16 @@ in {
   services.oar = {
     extraConfig = {
       LOG_LEVEL = "3";
+      # LOG_FORMAT="";
       HIERARCHY_LABELS = "resource_id,network_address,cpuset";
+      ENERGY_SAVING_MODE = "metascheduler_decision_making";
+      SCHEDULER_TIMEOUT = "10";
+      ENERGY_SAVING_INTERNAL= "yes";
+      ENERGY_SAVING_NODE_MANAGER_SLEEP_CMD = "hostname";
+      ENERGY_SAVING_NODE_MANAGER_WAKE_UP_CMD = "${wake_up_node}/bin/wake_up_node";
+      ENERGY_SAVING_WINDOW_FORKER_SIZE="3";
+      SCHEDULER_NODE_MANAGER_SLEEP_TIME="1";
+      SCHEDULER_NODE_MANAGER_IDLE_TIME="1";
     };
 
     # oar db passwords

@@ -163,18 +163,16 @@
         ]
       },
       "locked": {
+        "dirtyRev": "655beff3956a045e45f1b6070a75f3769cdff457-dirty",
+        "dirtyShortRev": "655beff-dirty",
         "lastModified": 1687868702,
-        "narHash": "sha256-nHRzihst1bk1WMM82vJWa1XzUoef7B9PHfwA191aqD8=",
-        "ref": "nixpkgs-2305",
-        "rev": "655beff3956a045e45f1b6070a75f3769cdff457",
-        "revCount": 540,
+        "narHash": "sha256-rx6rBvTofmrmBoLXGhp0Y2tCDssgmbCAWQqYpBvHgqU=",
         "type": "git",
-        "url": "https://gitlab.inria.fr/nixos-compose/nixos-compose.git"
+        "url": "file:///home/adfaure/code/nixos-compose"
       },
       "original": {
-        "ref": "nixpkgs-2305",
         "type": "git",
-        "url": "https://gitlab.inria.fr/nixos-compose/nixos-compose.git"
+        "url": "file:///home/adfaure/code/nixos-compose"
       }
     },
     "root": {
