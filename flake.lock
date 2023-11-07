@@ -2,11 +2,11 @@
   "nodes": {
     "NUR": {
       "locked": {
-        "lastModified": 1685535224,
-        "narHash": "sha256-r9PMTDYswNqPCcMGQv6SFvE7tKtp3kIfmyixT3CH/3E=",
+        "lastModified": 1699345929,
+        "narHash": "sha256-MBW4V6UPs+KEMQI3BDFOOaSCR+DmtsoBJRF2ppgFBIk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1872f9d69d18d4afb3b5ff7771fa6bbacdabf03f",
+        "rev": "1a48171960608a6ff4e7f73a3e381bf005b625d7",
         "type": "github"
       },
       "original": {
@@ -16,12 +16,15 @@
       }
     },
     "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
       "locked": {
-        "lastModified": 1667395993,
-        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "lastModified": 1692799911,
+        "narHash": "sha256-3eihraek4qL744EvQXsK1Ha6C3CR7nnT8X2qWap4RNk=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "rev": "f9e7cf818399d17d347f847525c5a5a8032e4e44",
         "type": "github"
       },
       "original": {
@@ -69,11 +72,11 @@
         "nixpkgs2111": "nixpkgs2111"
       },
       "locked": {
-        "lastModified": 1695727972,
-        "narHash": "sha256-PJd8QUpP07VPS/m7ceZsHiF/UAhC05d2U75Le7rfe5M=",
+        "lastModified": 1698240093,
+        "narHash": "sha256-0DMkGcW4AyyX4lreXycPSK5wG/E0idDnTqLIYyhxZQA=",
         "owner": "oar-team",
         "repo": "nur-kapack",
-        "rev": "b990c3866525a9c52cc4e664a2ea8246b6c65987",
+        "rev": "7434ca26bee07fbc36a973fbe44a3bcab6cb5b9c",
         "type": "github"
       },
       "original": {
@@ -163,16 +166,18 @@
         ]
       },
       "locked": {
-        "dirtyRev": "655beff3956a045e45f1b6070a75f3769cdff457-dirty",
-        "dirtyShortRev": "655beff-dirty",
-        "lastModified": 1687868702,
-        "narHash": "sha256-rx6rBvTofmrmBoLXGhp0Y2tCDssgmbCAWQqYpBvHgqU=",
+        "lastModified": 1699367568,
+        "narHash": "sha256-y/jPqLJ1kcjM5y86QNl1dA7o5IzA49G2cjkG9QwK6lw=",
+        "ref": "nixpkgs-2305",
+        "rev": "632f1d053a624dd0bc6be72ad15cfb0936a52ef3",
+        "revCount": 548,
         "type": "git",
-        "url": "file:///home/adfaure/code/nixos-compose"
+        "url": "https://gitlab.inria.fr/nixos-compose/nixos-compose.git"
       },
       "original": {
+        "ref": "nixpkgs-2305",
         "type": "git",
-        "url": "file:///home/adfaure/code/nixos-compose"
+        "url": "https://gitlab.inria.fr/nixos-compose/nixos-compose.git"
       }
     },
     "root": {
@@ -181,6 +186,21 @@
         "kapack": "kapack",
         "nixpkgs": "nixpkgs",
         "nxc": "nxc"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },
