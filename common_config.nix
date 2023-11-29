@@ -31,7 +31,7 @@ let
     NODES=`cat`
     for NODE in $NODES
     do
-      oarnodesetting -h ''${NODE} -s Alive
+      ${pkgs.nur.repos.kapack.oar}/bin/.oarnodesetting -h ''${NODE} -s Alive
     done
   '';
 
@@ -153,13 +153,9 @@ in {
     DB_BASE_PASSWD_RO="oar_ro"
   '';
 
-  environment.etc."oar-quotas.json" = {
+  environment.etc."oar/quotas.json" = {
     text = ''
       {
-        "quotas": {
-          "*,*,*,*": [-1,-1,-1],
-          "*,*,*,user1": [-1,-1,-1]
-        }
       }
     '';
     mode = "0777";
@@ -173,11 +169,14 @@ in {
       ENERGY_SAVING_MODE = "metascheduler_decision_making";
       SCHEDULER_TIMEOUT = "10";
       ENERGY_SAVING_INTERNAL= "yes";
-      ENERGY_SAVING_NODE_MANAGER_SLEEP_CMD = "hostname";
+      ENERGY_SAVING_NODE_MANAGER_SLEEP_CMD = "${pkgs.hostname}/bin/hostname";
       ENERGY_SAVING_NODE_MANAGER_WAKE_UP_CMD = "${wake_up_node}/bin/wake_up_node";
       ENERGY_SAVING_WINDOW_FORKER_SIZE="3";
       SCHEDULER_NODE_MANAGER_SLEEP_TIME="1";
       SCHEDULER_NODE_MANAGER_IDLE_TIME="1";
+      QUOTAS="yes";
+      QUOTAS_CONF_FILE="/etc/oar/quotas.json";
+      # PINGCHECKER_SENTINELLE_SCRIPT_COMMAND="${pkgs.nur.repos.kapack.oar}/tools/sentinelle.pl -t 30 -w 20";
     };
 
     # oar db passwords
@@ -197,6 +196,8 @@ in {
       echo $num_nodes > /etc/num_nodes
 
       add_resources $num_nodes $num_cores
+
+      ${pkgs.nur.repos.kapack.oar}/bin/.oarnodesetting --sql true -p available_upto=2147483646
       '';
     };
     server.host = "server";
