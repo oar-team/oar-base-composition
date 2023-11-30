@@ -1,6 +1,9 @@
 [project]
+seed="42"
 
 # Examples
+[laptop.options]
+nix-flags = "--impure --override-input kapack path:/home/adfaure/code/nur-kapack"
 
 # [laptop.build.nur.repos.kapack.oar]
 # src = "/home/adfaure/code/oar3"
